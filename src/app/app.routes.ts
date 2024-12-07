@@ -4,6 +4,7 @@ import { SigINComponent } from './app/sig-in/sig-in.component';
 import { DashboardComponent } from './app/dashboard/dashboard.component';
 import { CustomerPageComponent } from './app/customer-page/customer-page.component';
 import { ProductWindowComponent } from './app/product-window/product-window.component';
+import { AddCustomerComponent } from './app/add-customer/add-customer.component';
 
 export const routes: Routes = [
     {
@@ -27,9 +28,10 @@ export const routes: Routes = [
                 component:CustomerPageComponent
             },
             {
-                path:"product-page",
-                component:ProductWindowComponent
+                path:"add-customer",
+                component:AddCustomerComponent
             }
+
         ]
     }
 ];
