@@ -13,11 +13,13 @@ export class AddCustomerComponent {
 
   constructor(private http:HttpClient) { }
 
-  public customer:Customer=new Customer("",0,"","","");
+  public customer:Customer=new Customer("","","","","");
 
   addcustomer(){
     this.http.post("http://localhost:8080/add-customer",this.customer).subscribe(res=>{
+      alert("Customer Added successfully!");
       console.log(res);
+      this.customer=new Customer("","","","","");
     })
   }
 
