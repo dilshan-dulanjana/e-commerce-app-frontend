@@ -5,6 +5,8 @@ import { DashboardComponent } from './app/dashboard/dashboard.component';
 import { CustomerPageComponent } from './app/customer-page/customer-page.component';
 import { ProductWindowComponent } from './app/product-window/product-window.component';
 import { AddCustomerComponent } from './app/add-customer/add-customer.component';
+import { AddProductComponent } from './app/add-product/add-product.component';
+import { ProductPageComponent } from './app/product-page/product-page.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +32,14 @@ export const routes: Routes = [
             {
                 path:"add-customer",
                 component:AddCustomerComponent
+            },
+            {
+                path:"add-product",
+                component:AddProductComponent
+            },
+            {
+                path:"product-page",
+                component:ProductPageComponent
             }
 
         ]
