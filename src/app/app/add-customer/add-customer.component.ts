@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Customer } from '../model/Customer';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-customer',
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './add-customer.component.html',
   styleUrl: './add-customer.component.css'
 })
