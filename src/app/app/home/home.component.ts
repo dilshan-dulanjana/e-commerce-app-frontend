@@ -13,10 +13,14 @@ import { BottomNavigationComponent } from '../bottom-navigation/bottom-navigatio
 import { NewItemsComponent } from '../new-items/new-items.component';
 import { HomeCaroselComponent } from '../home-carosel/home-carosel.component';
 import { HomeVideoComponent } from '../home-video/home-video.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   imports: [
+    FormsModule,
+    CommonModule,
      IonicModule ,
      HomeNavigationComponent,
      Banner1Component,
@@ -35,6 +39,8 @@ import { HomeVideoComponent } from '../home-video/home-video.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+ 
 
 
 }

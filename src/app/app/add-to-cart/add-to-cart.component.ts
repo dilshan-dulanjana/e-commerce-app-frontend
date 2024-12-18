@@ -51,7 +51,7 @@
 
 import { Component } from '@angular/core';
 import { Cart } from '../model/Cart';
-import { CartService } from './CartService';
+import { CartService } from '../home-navigation/CartService';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -108,6 +108,28 @@ export class AddToCartComponent {
     const decrement =Number(nowQty)-1;
     this.cartService.qtyDecrement(cart,decrement);
   }
+
+
+
+  //////////////////////////////
+  name = "Angular Toggle Show Hide";
+  showMyContainer: boolean = false;
+
+  status: boolean = false;
+  statusLink: boolean = false;
+  clickEvent() {
+    this.status = !this.status;
+    //this.statusLink = !this.statusLink;
+
+    if (this.statusLink) {
+      setTimeout(() => {
+        this.statusLink = false;
+      }, 230);
+    } else {
+      this.statusLink = true;
+    }
+  }
+
 
 
 

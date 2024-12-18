@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AddToCartComponent } from '../add-to-cart/add-to-cart.component';
 import { Product } from '../model/Product';
 import { Cart } from '../model/Cart';
-import { CartService } from '../add-to-cart/CartService';
+import { CartService } from '../home-navigation/CartService';
 import { FormsModule } from '@angular/forms';
 
 @Component({
