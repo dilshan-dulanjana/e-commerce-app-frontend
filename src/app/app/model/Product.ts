@@ -17,6 +17,6 @@ export class Product{
     this.unitPrice=unitPrice;
   }
 
-
-
 }
+
+
