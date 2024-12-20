@@ -1,0 +1,143 @@
+<link href="./Payment.css" />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 mb-lg-0 mb-3">
+            <div class="card p-3">
+                <div class="img-box">
+                    <img src="https://www.freepnglogos.com/uploads/visa-logo-download-png-21.png" alt="" />
+                </div>
+                <div class="number">
+                    <label class="fw-bold">**** **** **** 1060</label>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <small><span class="fw-bold">Expiry date:</span> <span>10/16</span></small>
+                    <small><span class="fw-bold">Name:</span> <span>Kumar</span></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-lg-0 mb-3">
+            <div class="card p-3">
+                <div class="img-box">
+                    <img src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
+                        alt="" />
+                </div>
+                <div class="number">
+                    <label class="fw-bold">**** **** **** 1060</label>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <small><span class="fw-bold">Expiry date:</span> <span>10/16</span></small>
+                    <small><span class="fw-bold">Name:</span> <span>Kumar</span></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-lg-0 mb-3">
+            <div class="card p-3">
+                <div class="img-box">
+                    <img src="https://www.freepnglogos.com/uploads/discover-png-logo/credit-cards-discover-png-logo-4.png"
+                        alt="" />
+                </div>
+                <div class="number">
+                    <label class="fw-bold">**** **** **** 1060</label>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <small><span class="fw-bold">Expiry date:</span> <span>10/16</span></small>
+                    <small><span class="fw-bold">Name:</span> <span>Kumar</span></small>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+            <div class="card p-3">
+                <p class="mb-0 fw-bold h4">Payment Details</p>
+            </div>
+        </div>
+
+        <div class="form-container mt-10">
+            <div class="field-container">
+                <label for="name">Name</label>
+                <input id="name" maxlength="20" type="text" />
+            </div>
+            <div class="field-container">
+                <label for="cardnumber">Card Number</label><span id="generatecard"></span>
+                <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric" />
+                <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+            </div>
+            <div class="field-container">
+                <label for="expirationdate">Expiration (mm/yy)</label>
+                <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric" />
+            </div>
+            <div class="field-container">
+                <label for="securitycode">Security Code</label>
+                <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric" />
+            </div>
+            <div class="field-container mt-3">
+                <label class="inline-flex items-center mb-5 cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer" />
+                    <div
+                        class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                    </div>
+                    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">save card details</span>
+                </label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="btn btn-primary payment" (click)="confirmViewInvoice()">
+                Make Payment
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Invoice Modal -->
+<div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Body -->
+            <div class="modal-body" id="printableInvoice">
+                <div class="text-center mb-4">
+                    <h1 class="anton-regular ">Fashion City Online Store Invoice</h1>
+                    <p class="text-gray-600">Thank you for your purchase!</p>
+                </div>
+
+                <div class="mb-4">
+                    <p><strong>Bill ID:</strong> {{ Bill_Id }}</p>
+                    <p><strong>Customer Name:</strong> {{ customername }}</p>
+                    <p><strong>Total Amount:</strong> ${{ invoiceData.amount }}</p>
+                </div>
+
+                <div class="relative overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
+                        <thead class="bg-gray-100 text-left">
+                            <tr>
+                                <th class="border border-gray-300 px-4 py-2">Product Name</th>
+                                <th class="border border-gray-300 px-4 py-2">Quantity</th>
+                                <th class="border border-gray-300 px-4 py-2">Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items" class="hover:bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-2">{{ item.product_name }}</td>
+                                <td class="border border-gray-300 px-4 py-2">{{ item.Qty }}</td>
+                                <td class="border border-gray-300 px-4 py-2">${{ item.Total_Amount }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" id="btn-cancel" class="btn btn-primary mt-1 mb-3" data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" id="btn-download" class="btn btn-primary mt-1 mb-3" (click)="downloadPdf()"
+                    data-bs-dismiss="modal">
+                    Download Invoice
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="./payments.js"></script>

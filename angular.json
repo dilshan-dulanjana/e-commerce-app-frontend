@@ -29,7 +29,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/crypto-browserify/index.js",
+              "node_modules/stream-browserify/index.js"
+            ]
           },
           "configurations": {
             "production": {

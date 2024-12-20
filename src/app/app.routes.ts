@@ -9,6 +9,7 @@ import { AddProductComponent } from './app/add-product/add-product.component';
 import { ProductPageComponent } from './app/product-page/product-page.component';
 import { BarcodeGeneratorComponent } from './app/barcode-generator/barcode-generator.component';
 import { HomeComponent } from './app/home/home.component';
+import { PaymentsComponent } from './app/payments/payments.component';
 
 export const routes: Routes = [
     {
@@ -50,5 +51,10 @@ export const routes: Routes = [
     {
         path:"home",
         component:HomeComponent
+    },
+    {
+        path:"payment",
+        component:PaymentsComponent
     }
+    
 ];

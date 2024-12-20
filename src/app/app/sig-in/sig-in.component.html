@@ -7,9 +7,9 @@
     <div class="login-form">
       <h1>LOGIN</h1>
       <form>
-        <input type="text" placeholder="UserName"><br><br>
-        <input type="password" placeholder="Password"><br><br><br>
-        <button routerLink="home">Login</button>
+        <input type="text" #username placeholder="UserName"><br><br>
+        <input type="password" #password  placeholder="Password"><br><br><br>
+        <button (click) ="login(username.value,password.value)">Login</button>
       </form>
     </div>
   </div>

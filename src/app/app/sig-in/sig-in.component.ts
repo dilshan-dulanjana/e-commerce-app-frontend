@@ -1,37 +1,64 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { SignJWT, jwtVerify, JWTPayload } from 'jose';
 
 @Component({
   selector: 'app-sig-in',
-  imports: [RouterLink],
+  standalone: true, // Ensure standalone component declaration
+  imports: [RouterLink, FormsModule, CommonModule],
   templateUrl: './sig-in.component.html',
-  styleUrl: './sig-in.component.css'
+  styleUrls: ['./sig-in.component.css'], // Fix typo from `styleUrl` to `styleUrls`
 })
 export class SigINComponent {
+  email: string = ''; // Login email
+  username: string = ''; // Login username
+  password: string = ''; // Login password
+  private secretKey = new TextEncoder().encode('your-secret-key'); // Replace with a secure key
 
-  constructor(private http:HttpClient,private  router:Router){}
+  constructor(private http: HttpClient, private router: Router) {}
 
-
-  
-
-  checkLogin(email:String,password:String){
-
-    this.http.get(`http://localhost:8080/checkLoging/${email},/${password}`).subscribe(res=>{
-
-      switch(res){
-        case true :
-          alert("Loging Successfully !!!");
-          this.router.navigate(["dashboard"]);
-          break;
-        case false:
-          alert("Invalied User Name and Password !!!");
-      }
-
-    })
-
-
-
+  // Generate JWT
+  async generateToken(): Promise<string> {
+    const payload: JWTPayload = { username: this.username, email: this.email };
+    return await new SignJWT(payload)
+      .setProtectedHeader({ alg: 'HS256' })
+      .setExpirationTime('2h') // Token expiration
+      .sign(this.secretKey);
   }
 
-}
+  // Save JWT locally
+  private saveToken(token: string): void {
+    localStorage.setItem('authToken', token);
+  }
+
+  // Login handler
+  async login(username:String,pasword:String): Promise<void> {
+
+    console.log("cjeck");
+  
+      this.http
+        .get<boolean>(
+          `http://localhost:8080/checkLoging/${username}/${pasword}`
+        )
+        .subscribe({
+          next: async (res) => {
+            if (res) {
+              alert('Login Successful!');
+              const token = await this.generateToken();
+              this.saveToken(token);
+              this.router.navigate(['home']);
+            } else {
+              alert('Invalid Username or Password!');
+            }
+          },
+          error: (err) => {
+            console.error('Login error:', err);
+            alert('An error occurred while logging in.');
+          },
+        });
+    } 
+  }
+
