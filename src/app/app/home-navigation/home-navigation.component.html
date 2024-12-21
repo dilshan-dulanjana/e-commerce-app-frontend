@@ -1,15 +1,15 @@
 <nav class="bg-black fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
 
   <div class="row">
-    <div class="col-md-1 mt-12  ">
+    <div class="col-md-2 mt-12  ">
       <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="./favicon.ico" class="h-8" alt="Flowbite Logo">
-        <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">D-Online Store</span>
+        <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Fashion City </span>
       </a>
 
     </div>
 
-    <div class="col-md-5 mt-5">
+    <div class="col-md-4 mt-5">
 
       <form class="max-w-lg mx-auto">
         <div class="flex">
@@ -65,7 +65,7 @@
 
     </div>
     <div class="col-md-2 mt-5 ">
-      <button type="button"
+      <button type="button" (click)=" loadSignIN()"
         class="text-black bg-[#f4dd2f] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
         <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
           viewBox="0 0 18 19">
@@ -78,7 +78,7 @@
 
     </div>
     <div class="col-md-2 mt-5 ">
-      <button type="button"
+      <button type="button" (click)="loadSignUP()"
         class="text-black bg-[#f4dd2f] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
         <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
           viewBox="0 0 18 19">
@@ -86,12 +86,12 @@
             d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
             clip-rule="evenodd" />
         </svg>
-        Sign IN
+        Sign UP
       </button>
 
     </div>
-    <div class="col-md-2 mt-5 ">
-      <button type="button" (click)="toggleSidebar()"
+    <div class="col-md-2 mt-5 "> 
+      <button type="button" (click)="toggleSidebar()" routerLink="signup"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         <svg class="w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
           viewBox="0 0 18 21">

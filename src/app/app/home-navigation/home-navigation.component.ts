@@ -4,16 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CartService } from './CartService';
 import { Cart } from '../model/Cart';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home-navigation',
-  imports: [IonicModule ,CommonModule,FormsModule ],
+  imports: [IonicModule ,CommonModule,FormsModule,RouterLink ],
   templateUrl: './home-navigation.component.html',
   styleUrl: './home-navigation.component.css'
 })
 export class HomeNavigationComponent {
   isSidebarOpen = false; // Tracks the sidebar visibility
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService ,private router:Router) {
   
       this.selecetedItemList=cartService.getItems();
       this.TotalAmount=cartService.getTotalAmount();
@@ -65,4 +66,14 @@ export class HomeNavigationComponent {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen; // Toggle the sidebar state
   }
+
+ loadSignUP(){
+
+  this.router.navigate(['signup']);
+ }
+
+ loadSignIN(){
+  this.router.navigate(["signIN"])
+ }
+
 }
