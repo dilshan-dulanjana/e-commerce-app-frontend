@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Customer } from '../model/Customer';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,14 +13,16 @@ import { CommonModule } from '@angular/common';
 })
 export class SignupComponent {
 
-   constructor(private http:HttpClient) { }
+   constructor(private http:HttpClient ,private router:Router) { }
   
     public customer:Customer=new Customer("","","","","");
   
     addcustomer(){
       this.http.post("http://localhost:8080/add-customer",this.customer).subscribe(res=>{
-        alert("Customer Added successfully!");
+        alert("Register successfully!");
         console.log(res);
+
+        this.router.navigate(["signIN"]) 
         this.customer=new Customer("","","","","");
       })
     }

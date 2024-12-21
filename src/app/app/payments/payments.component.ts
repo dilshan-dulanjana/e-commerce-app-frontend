@@ -112,19 +112,19 @@ billItems: this.bill.billItems
     this.http.post("http://localhost:8080/bill", this.transformedObject).subscribe(
       (response: any) => {
         if (response) {
-          this.billData = response; // Assign the entire response to billData
+          this.billData = response;
           this.items = response.Items || []; // Extract Items array
           
-          // Check if Items array has elements
+          
           if (this.items.length > 0) {
-            this.customername = this.items[0].name; // Get name from the first item
+            this.customername = this.items[0].name; 
           } else {
             this.customername = '';
           }
   
-          this.Bill_Id = response.Bill_Id; // Extract Bill_Id
+          this.Bill_Id = response.Bill_Id; 
   
-          // Calculate total amount
+          
           this.invoiceData.amount = this.items.reduce(
             (total: number, item: { Total_Amount: number }) => total + item.Total_Amount,
             0
@@ -132,12 +132,7 @@ billItems: this.bill.billItems
   
           console.log("Bill ID:", this.Bill_Id);
           console.log("Invoice Amount:", this.invoiceData.amount);
-        } else {
-          console.error("Unexpected response format:", response);
-        }
-      },
-      (error) => {
-        console.error("Error fetching bill data:", error);
+        } 
       }
     );
   }
