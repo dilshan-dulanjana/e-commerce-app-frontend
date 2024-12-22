@@ -11,6 +11,8 @@ import { PaymentsComponent } from './app/payments/payments.component';
 import { AdminRegisterComponent } from './app/admin-register/admin-register.component';
 import { DashBoardHomeComponent } from './app/dash-board-home/dash-board-home.component';
 import { DashProfileComponent } from './app/dash-profile/dash-profile.component';
+import { ShowAdminsComponent } from './app/show-admins/show-admins.component';
+import { RedcountItemsComponent } from './app/redcount-items/redcount-items.component';
 
 export const routes: Routes = [
     {
@@ -57,6 +59,14 @@ export const routes: Routes = [
             {
                 path:"dashboard-profile",
                 component:DashProfileComponent
+            },
+            {
+                path:"show-admin",
+                component:ShowAdminsComponent
+            },
+            {
+                path:"red-count-items",
+                component:RedcountItemsComponent
             }
 
         ]

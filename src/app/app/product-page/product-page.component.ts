@@ -4,6 +4,7 @@ import { GetCustomer } from '../model/GetCustomer';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { GetProduct } from '../model/GetProduct';
+import axios from 'axios';
 
 @Component({
   selector: 'app-product-page',
@@ -12,8 +13,11 @@ import { GetProduct } from '../model/GetProduct';
   styleUrl: './product-page.component.css'
 })
 export class ProductPageComponent {
-
-  
+  selectedFile: File | null = null;
+  imageUrl: string | null = null;
+  isButtonDisabled: boolean = true;
+  uploadPreset: string = 'products';
+  cloudName: string = 'dxe12sxtl';
     constructor(private http: HttpClient) {
       this.viewProducts();
     }
@@ -92,5 +96,41 @@ export class ProductPageComponent {
         this.viewProducts();
       })
   
+    }
+
+    onFileSelected(event: any): void {
+      this.selectedFile = event.target.files[0];
+      this.uploadImage(event)
+    }
+  
+  
+    
+    async uploadImage(event: Event): Promise<void> {
+      event.preventDefault();
+  
+      if (!this.selectedFile) {
+        alert('Please select an image file to upload.');
+        return;
+      }
+  
+      const formData = new FormData();
+      formData.append('file', this.selectedFile);
+      formData.append('upload_preset', this.uploadPreset);
+  
+      try {
+        // Upload image to Cloudinary
+        const response = await axios.post(
+          `https://api.cloudinary.com/v1_1/${this.cloudName}/image/upload`,
+          formData
+        );
+        this.imageUrl = response.data.secure_url;
+        this.upateProducts.imageUrl=response.data.secure_url;
+        this.isButtonDisabled=false;
+        // Save the image URL to the database
+        
+      } catch (error) {
+        console.error('Error uploading image:', error);
+        alert('Failed to upload image. Please try again.');
+      }
     }
 }

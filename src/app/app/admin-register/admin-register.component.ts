@@ -15,8 +15,10 @@ export class AdminRegisterComponent {
 
   
   public admin:Admin= new Admin("","","","","","admin");
+  
    
   addAdmin(){
+    this.admin.category="admin";
     console.log(this.admin);
     this.http.post("http://localhost:8080/add-admin",this.admin).subscribe(res=>{
       alert("Admin Added successfully!");
