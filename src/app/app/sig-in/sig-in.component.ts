@@ -50,9 +50,9 @@ export class SigINComponent {
               const token = await this.generateToken();
               this.saveToken(token);
               this.router.navigate(['home']);
-            } else {
+            } 
               alert('Invalid Username or Password!');
-            }
+            
           },
           error: (err) => {
             console.error('Login error:', err);

@@ -9,6 +9,8 @@ import { ProductPageComponent } from './app/product-page/product-page.component'
 import { HomeComponent } from './app/home/home.component';
 import { PaymentsComponent } from './app/payments/payments.component';
 import { AdminRegisterComponent } from './app/admin-register/admin-register.component';
+import { DashBoardHomeComponent } from './app/dash-board-home/dash-board-home.component';
+import { DashProfileComponent } from './app/dash-profile/dash-profile.component';
 
 export const routes: Routes = [
     {
@@ -47,6 +49,14 @@ export const routes: Routes = [
             {
                 path:"add-admin",
                 component:AdminRegisterComponent
+            },
+            {
+                path:"",
+                component:DashBoardHomeComponent
+            },
+            {
+                path:"dashboard-profile",
+                component:DashProfileComponent
             }
 
         ]
