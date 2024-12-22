@@ -40,7 +40,7 @@ export class SigINComponent {
     console.log("cjeck");
   
       this.http
-        .get<boolean>(
+        .get<object>(
           `http://localhost:8080/checkLoging/${username}/${pasword}`
         )
         .subscribe({

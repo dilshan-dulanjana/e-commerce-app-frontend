@@ -3,13 +3,12 @@ import { SignupComponent } from './app/signup/signup.component';
 import { SigINComponent } from './app/sig-in/sig-in.component';
 import { DashboardComponent } from './app/dashboard/dashboard.component';
 import { CustomerPageComponent } from './app/customer-page/customer-page.component';
-import { ProductWindowComponent } from './app/product-window/product-window.component';
 import { AddCustomerComponent } from './app/add-customer/add-customer.component';
 import { AddProductComponent } from './app/add-product/add-product.component';
 import { ProductPageComponent } from './app/product-page/product-page.component';
-import { BarcodeGeneratorComponent } from './app/barcode-generator/barcode-generator.component';
 import { HomeComponent } from './app/home/home.component';
 import { PaymentsComponent } from './app/payments/payments.component';
+import { AdminRegisterComponent } from './app/admin-register/admin-register.component';
 
 export const routes: Routes = [
     {
@@ -44,6 +43,10 @@ export const routes: Routes = [
             {
                 path:"product-page",
                 component:ProductPageComponent
+            },
+            {
+                path:"add-admin",
+                component:AdminRegisterComponent
             }
 
         ]
