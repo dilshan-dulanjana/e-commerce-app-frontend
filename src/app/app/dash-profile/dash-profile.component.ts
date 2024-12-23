@@ -61,19 +61,19 @@ export class DashProfileComponent implements OnInit {
     }
   }
 
-  cards:any;
+
 
   ngOnInit(): void {
     this.getAdminByID();
   }
 
-  public admin: Admin_Profile = new Admin_Profile(0, "", "", "", "", "", "", "");
+  public admin: any;
 
 
   getAdminByID(){
-    this.http.get(`http://localhost:8080/get-admin/${1}`).subscribe(res=>{
+    this.http.get(`http://localhost:8080/admin-byid/${2}`).subscribe(res=>{
       console.log(res);
-      this.cards=res;
+      this.admin=res;
     })
   }
 

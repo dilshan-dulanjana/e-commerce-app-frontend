@@ -4,7 +4,7 @@
         <div *ngFor="let card of cards"
             class=" col-md-4 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
             <div class="flex flex-col items-center pb-10">
-                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" [src]="card.img" [alt]="card.name" />
+                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" [src]="card.image_url" [alt]="card.name" />
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
                     {{ card.name }}
                 </h5>
