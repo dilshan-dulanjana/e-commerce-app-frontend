@@ -13,6 +13,7 @@ import { DashBoardHomeComponent } from './app/dash-board-home/dash-board-home.co
 import { DashProfileComponent } from './app/dash-profile/dash-profile.component';
 import { ShowAdminsComponent } from './app/show-admins/show-admins.component';
 import { RedcountItemsComponent } from './app/redcount-items/redcount-items.component';
+import { OnlineUsersComponent } from './app/online-users/online-users.component';
 
 export const routes: Routes = [
     {
@@ -67,6 +68,9 @@ export const routes: Routes = [
             {
                 path:"red-count-items",
                 component:RedcountItemsComponent
+            },{
+                path:"online-users",
+                component:OnlineUsersComponent
             }
 
         ]
