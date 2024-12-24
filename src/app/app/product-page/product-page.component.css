@@ -1,8 +1,416 @@
 .anton-regular {
-    font-family: "Anton", serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 6dvh;
-    align-items: center;
-    justify-content: center;
+  font-family: "Anton", serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 6dvh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Update Button CSS */
+.buttonUpdate-pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.buttonUpdate-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.buttonUpdate-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(229, 100%, 16%) 0%,
+    hsl(231, 100%, 32%) 8%,
+    hsl(236, 100%, 32%) 92%,
+    hsl(236, 100%, 16%) 100%
+  );
+}
+
+.buttonUpdate-front {
+  display: block;
+  position: relative;
+  padding: 6px 13px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: hsl(233, 100%, 39%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+@media (min-width: 768px) {
+  .buttonUpdate-front {
+    font-size: 0.9rem;
+    padding: 11px 20px;
+  }
+}
+
+.buttonUpdate-pushable:hover {
+  filter: brightness(110%);
+  -webkit-filter: brightness(110%);
+}
+
+.buttonUpdate-pushable:hover .buttonUpdate-front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.buttonUpdate-pushable:active .buttonUpdate-front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.buttonUpdate-pushable:hover .buttonUpdate-shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.buttonUpdate-pushable:active .buttonUpdate-shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.buttonUpdate-pushable:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+  /* Delete Button CSS */
+  .buttonDelete-pushable {
+    margin-top: 10px;
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .buttonDelete-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+  }
+  
+  .buttonDelete-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+      to left,
+      hsl(340deg 100% 16%) 0%,
+      hsl(340deg 100% 32%) 8%,
+      hsl(340deg 100% 32%) 92%,
+      hsl(340deg 100% 16%) 100%
+    );
+  }
+  
+  .buttonDelete-front {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: hsl(0, 100%, 47%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+  }
+  
+  @media (min-width: 768px) {
+    .buttonDelete-front {
+    font-size: 0.9rem;
+    padding: 11px 23px;
+    }
+  }
+  
+  .buttonDelete-pushable:hover {
+    filter: brightness(110%);
+    -webkit-filter: brightness(110%);
+  }
+  
+  .buttonDelete-pushable:hover .buttonDelete-front {
+    transform: translateY(-6px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+  }
+  
+  .buttonDelete-pushable:active .buttonDelete-front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+  
+  .buttonDelete-pushable:hover .buttonDelete-shadow {
+    transform: translateY(4px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+  }
+  
+  .buttonDelete-pushable:active .buttonDelete-shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+  }
+  
+  .buttonDelete-pushable:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  .buttonDelete2-pushable {
+    margin-top: 10px;
+    margin-left: 25px;
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .buttonDelete2-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+  }
+  
+  .buttonDelete2-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+      to left,
+      hsl(0, 100%, 16%) 0%,
+      hsl(0, 100%, 32%) 8%,
+      hsl(0, 100%, 32%) 92%,
+      hsl(0, 100%, 16%) 100%
+    );
+  }
+  
+  .buttonDelete2-front {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: hsl(0, 100%, 50%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+  }
+  
+  @media (min-width: 768px) {
+    .buttonDelete2-front {
+    font-size: 0.9rem;
+    padding: 11px 23px;
+    }
+  }
+  
+  .buttonDelete2-pushable:hover {
+    filter: brightness(110%);
+    -webkit-filter: brightness(110%);
+  }
+  
+  .buttonDelete2-pushable:hover .buttonDelete2-front {
+    transform: translateY(-6px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+  }
+  
+  .buttonDelete2-pushable:active .buttonDelete2-front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+  
+  .buttonDelete2-pushable:hover .buttonDelete2-shadow {
+    transform: translateY(4px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+  }
+  
+  .buttonDelete2-pushable:active .buttonDelete2-shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+  }
+  
+  .buttonDelete2-pushable:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Close Button CSS */
+  .buttonClose-pushable {
+    margin-left: 25px;
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .buttonClose-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+  }
+  
+  .buttonClose-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+      to left,
+      hsl(340deg 100% 16%) 0%,
+      hsl(340deg 100% 32%) 8%,
+      hsl(340deg 100% 32%) 92%,
+      hsl(340deg 100% 16%) 100%
+    );
+  }
+  
+  .buttonClose-front {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: hsl(345deg 100% 47%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+  }
+  
+  @media (min-width: 768px) {
+    .buttonClose-front {
+      font-size: 0.9rem;
+      padding: 11px 23px;
+    }
+  }
+  
+  .buttonClose-pushable:hover {
+    filter: brightness(110%);
+    -webkit-filter: brightness(110%);
+  }
+  
+  .buttonClose-pushable:hover .buttonClose-front {
+    transform: translateY(-6px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+  }
+  
+  .buttonClose-pushable:active .buttonClose-front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+  
+  .buttonClose-pushable:hover .buttonClose-shadow {
+    transform: translateY(4px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+  }
+  
+  .buttonClose-pushable:active .buttonClose-shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+  }
+  
+  .buttonClose-pushable:focus:not(:focus-visible) {
+    outline: none;
   }
