@@ -16,6 +16,9 @@ export class SigINComponent {
   email: string = ''; // Login email
   username: string = ''; // Login username
   password: string = ''; // Login password
+  togglebutton:boolean=false;
+
+
   private secretKey = new TextEncoder().encode('your-secret-key'); // Replace with a secure key
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -35,11 +38,18 @@ export class SigINComponent {
   }
 
   // Login handler
+
+
+
+
   async login(username:String,pasword:String): Promise<void> {
 
     console.log("cjeck");
-  
-      this.http
+
+    switch(this.togglebutton){
+
+      case true:
+        this.http
         .get<object>(
           `http://localhost:8080/checkLoging/${username}/${pasword}`
         )
@@ -59,6 +69,40 @@ export class SigINComponent {
             alert('An error occurred while logging in.');
           },
         });
+
+        break;
+
+        case false:
+          this.http
+          .get<object>(
+            `http://localhost:8080/checkLoging/${username}/${pasword}`
+          )
+          .subscribe({
+            next: async (res) => {
+              if (res) {
+                alert('Login Successful!');
+                const token = await this.generateToken();
+                this.saveToken(token);
+                this.router.navigate(['dashboard']);
+              } 
+                alert('Invalid Username or Password!');
+              
+            },
+            error: (err) => {
+              console.error('Login error:', err);
+              alert('An error occurred while logging in.');
+            },
+          });
+
+
+    }
+  
+
     } 
+
+    onToggle(): void {
+      this.togglebutton=true;
+     
+    }
   }
 

@@ -136,7 +136,7 @@ button:hover{
   text-align: center; /* Centered on the page */
   margin-top: 50px; /* Add spacing from the top */
   letter-spacing: 2px; /* Add spacing between letters */
-  background: linear-gradient(45deg, #ff69b4, #8a2be2); /* Gradient effect */
+  background: linear-gradient(45deg, #f6d205, #f7eb04); /* Gradient effect */
   -webkit-background-clip: text; /* Clip background to text */
   -webkit-text-fill-color: transparent; /* Transparent fill to show gradient */
 }
