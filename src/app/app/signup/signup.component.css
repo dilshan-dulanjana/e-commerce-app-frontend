@@ -19,7 +19,7 @@ body {
 	object-fit: cover;
 	padding: 0px;
 	margin: 0px;
-	opacity: 0.3;
+	opacity: 0.9;
 }
 
 
@@ -63,6 +63,7 @@ input{
 	background: none;
 	border: 2px solid white;
 	border-radius: 8px;
+	color: white;
 }
 
 h1{
@@ -86,10 +87,11 @@ button{
 	border-radius: 5px;
 	cursor: pointer;
 	margin-bottom: 30px;
+	margin-top: 10%;
 }
 
 button:hover{
-	background: #f1a6bc;
+	background: #090708;
 }
 
 @media(max-width: 600px) {
@@ -103,7 +105,7 @@ button:hover{
 	object-fit: cover;
 	padding: 0px;
 	margin: 0px;
-	opacity: 0.3;
+	opacity: 0.9;
 }
 
 .background{
@@ -115,7 +117,7 @@ button:hover{
 }
 
 .login-form{
-	width: 90%;
+	width: 100%;
 	padding: 10%;
 	background: white;
 	text-align: center;
@@ -124,4 +126,22 @@ button:hover{
 	margin-top: 70px;
 	border-radius: 10px;
 }
+}
+
+.fashion-heading {
+  font-family: 'Poppins', sans-serif; /* Modern and elegant font */
+  font-size: 3rem; /* Large and bold */
+  font-weight: bold; /* Make it stand out */
+  color: #fa0981; /* Vibrant pink for a fashionable look */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  text-align: center; /* Centered on the page */
+  margin-top: 10px; /* Add spacing from the top */
+  letter-spacing: 2px; /* Add spacing between letters */
+  background: linear-gradient(45deg, #ff69b4, #8a2be2); /* Gradient effect */
+  -webkit-background-clip: text; /* Clip background to text */
+  -webkit-text-fill-color: transparent; /* Transparent fill to show gradient */
+}
+
+#signup{
+	font-size: 2rem;
 }
