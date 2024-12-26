@@ -86,7 +86,7 @@ button{
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	margin-bottom: 30px;
+	margin-bottom: 2px;
 	margin-top: 10%;
 }
 
@@ -129,19 +129,40 @@ button:hover{
 }
 
 .fashion-heading {
-  font-family: 'Poppins', sans-serif; /* Modern and elegant font */
-  font-size: 3rem; /* Large and bold */
-  font-weight: bold; /* Make it stand out */
-  color: #fa0981; /* Vibrant pink for a fashionable look */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-  text-align: center; /* Centered on the page */
-  margin-top: 10px; /* Add spacing from the top */
-  letter-spacing: 2px; /* Add spacing between letters */
-  background: linear-gradient(45deg, #f6d205, #f7eb04); /* Gradient effect */
-  -webkit-background-clip: text; /* Clip background to text */
-  -webkit-text-fill-color: transparent; /* Transparent fill to show gradient */
+  font-family: 'Poppins', sans-serif; 
+  font-size: 3rem; 
+  font-weight: bold; 
+  color: #fa0981; 
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+  text-align: center; 
+  margin-top: 10px; 
+  letter-spacing: 2px; 
+  background: linear-gradient(45deg, #eef605, #dff704); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
 }
 
 #signup{
 	font-size: 2rem;
+}
+
+
+
+
+#btn-forgot_password{
+	background: none;
+	outline : none;
+	background: #050304;
+	padding: 10px 40px;
+	font-size: 17px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 5px;
+	
+}
+
+#btn-forgot_password:hover{
+	background: #2778ea;
 }

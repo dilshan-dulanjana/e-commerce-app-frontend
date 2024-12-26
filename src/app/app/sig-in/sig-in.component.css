@@ -86,7 +86,7 @@ button{
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 }
 
 button:hover{
@@ -158,4 +158,23 @@ button:hover{
 
 #btn-forgot_password:hover{
 	background: #2778ea;
+}
+
+#buttonhome{
+	
+	background: none;
+	outline : none;
+	background: #da2859;
+	padding: 10px 40px;
+	font-size: 17px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-bottom: 5px;
+	
+}
+
+#buttonhome:hover{
+	background: #090708;
 }

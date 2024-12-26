@@ -5,8 +5,9 @@
 
   <div class="login">
     <div class="login-form">
+      
+     
       <h1 class="fashion-heading">Fashion City</h1>
-
       <h1>LOGIN</h1>
       <form>
         <input type="text" #username placeholder="UserName"><br><br>
@@ -25,6 +26,8 @@
         </div>
         <button (click)="login(username.value,password.value)">Login</button>
         <button id="btn-forgot_password">Forgot password</button>
+        <button id="btn-forgot_password" (click)="createAccount()">Create Account</button>
+        <button (click)="movetoHome()" id="buttonhome">Back to Home</button>
       </form>
     </div>
   </div>

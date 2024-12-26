@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { SignJWT, jwtVerify, JWTPayload } from 'jose';
+import { AuthService } from '../session/auth.service';
 
 @Component({
   selector: 'app-sig-in',
@@ -21,7 +22,7 @@ export class SigINComponent {
 
   private secretKey = new TextEncoder().encode('your-secret-key'); // Replace with a secure key
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,private authService: AuthService) {}
 
   // Generate JWT
   async generateToken(): Promise<string> {
@@ -61,8 +62,7 @@ export class SigINComponent {
               this.saveToken(token);
               this.router.navigate(['home']);
             } 
-              alert('Invalid Username or Password!');
-            
+             
           },
           error: (err) => {
             console.error('Login error:', err);
@@ -75,17 +75,18 @@ export class SigINComponent {
         case false:
           this.http
           .get<object>(
-            `http://localhost:8080/checkLoging/${username}/${pasword}`
+            `http://localhost:8080/adminlogingcheck/${username}/${pasword}`
           )
           .subscribe({
             next: async (res) => {
               if (res) {
-                alert('Login Successful!');
+                alert('Admin Login Successful!');
                 const token = await this.generateToken();
                 this.saveToken(token);
+                console.log(token);
                 this.router.navigate(['dashboard']);
               } 
-                alert('Invalid Username or Password!');
+               
               
             },
             error: (err) => {
@@ -103,6 +104,18 @@ export class SigINComponent {
     onToggle(): void {
       this.togglebutton=true;
      
+    }
+
+    logout() {
+      this.authService.logout();
+      this.router.navigate(['signIN']); // Redirect to login
+    }
+
+    createAccount(){
+      this.router.navigate(['signup']);
+    }
+    movetoHome(){
+      this.router.navigate(['home']);
     }
   }
 
