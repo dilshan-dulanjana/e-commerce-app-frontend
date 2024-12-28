@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetProduct } from '../model/GetProduct';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -14,10 +14,13 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './item-table.component.html',
   styleUrl: './item-table.component.css'
 })
-export class ItemTableComponent {
+export class ItemTableComponent  implements OnInit{
       constructor(private http: HttpClient ,private cartService: CartService) {
         this.viewProducts();
       }
+  ngOnInit(): void {
+    this.loadProducts();
+  }
     
       public productList:any=[];
     
@@ -25,17 +28,27 @@ export class ItemTableComponent {
       public searchResult: any = "";
       showModal: boolean = false;
     
+     
+      allProducts: any=[] ; // Assuming you have all products available here
+      startIndex: number = 0;
+      pageSize: number = 5;
   
   
       public upateProducts:GetProduct= new GetProduct(1,"","","","","",0,0)
   
       public product:GetProduct= new GetProduct(1,"","","","","",0,0)
     
+      loadProducts(): void {
+        const endIndex = this.startIndex + this.pageSize;
+        const newProducts = this.allProducts.slice(this.startIndex, endIndex);
+        this.productList = [...this.productList, ...newProducts];
+        this.startIndex = endIndex;
+      }
     
     
       viewProducts() {
         this.http.get("http://localhost:8080/get-allproduct").subscribe(res => {
-          this.productList = res;
+          this.allProducts = res;
           console.log(res);
     
         })

@@ -14,6 +14,8 @@ import { AuthService } from '../session/auth.service';
   styleUrls: ['./sig-in.component.css'], // Fix typo from `styleUrl` to `styleUrls`
 })
 export class SigINComponent {
+
+  
   email: string = ''; // Login email
   username: string = ''; // Login username
   password: string = ''; // Login password
@@ -44,6 +46,9 @@ export class SigINComponent {
 
 
   async login(username:String,pasword:String): Promise<void> {
+
+
+    
 
     console.log("cjeck");
 

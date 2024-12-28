@@ -76,4 +76,8 @@ export class HomeNavigationComponent {
   this.router.navigate(["signIN"])
  }
 
+ naviagtetoPayment(){
+  this.router.navigate(["payment"])
+ }
+
 }

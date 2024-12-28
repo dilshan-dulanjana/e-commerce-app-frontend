@@ -28,7 +28,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    component: SigINComponent,
+    component: HomeComponent,
   },
   {
     path: 'dashboard',
