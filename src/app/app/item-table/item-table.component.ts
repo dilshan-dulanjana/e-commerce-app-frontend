@@ -19,7 +19,7 @@ export class ItemTableComponent  implements OnInit{
         this.viewProducts();
       }
   ngOnInit(): void {
-    this.loadProducts();
+    
   }
     
       public productList:any=[];
@@ -28,27 +28,19 @@ export class ItemTableComponent  implements OnInit{
       public searchResult: any = "";
       showModal: boolean = false;
     
-     
-      allProducts: any=[] ; // Assuming you have all products available here
-      startIndex: number = 0;
-      pageSize: number = 5;
+
   
   
       public upateProducts:GetProduct= new GetProduct(1,"","","","","",0,0)
   
       public product:GetProduct= new GetProduct(1,"","","","","",0,0)
     
-      loadProducts(): void {
-        const endIndex = this.startIndex + this.pageSize;
-        const newProducts = this.allProducts.slice(this.startIndex, endIndex);
-        this.productList = [...this.productList, ...newProducts];
-        this.startIndex = endIndex;
-      }
+
     
     
       viewProducts() {
         this.http.get("http://localhost:8080/get-allproduct").subscribe(res => {
-          this.allProducts = res;
+          this.productList = res;
           console.log(res);
     
         })
@@ -70,5 +62,31 @@ export class ItemTableComponent  implements OnInit{
         this.cartService.addItem(this.cartItem);
        
       }
+
+
+      ////////////////////////////////////
+
+      currentPage = 1;
+      itemsPerPage = 5;
+    
+      get paginatedProducts() {
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        return this.productList.slice(startIndex, startIndex + this.itemsPerPage);
+      }
+    
+      get totalPages() {
+        return Math.ceil(this.productList.length / this.itemsPerPage);
+      }
+    
+      goToPage(page: number) {
+        if (page > 0 && page <= this.totalPages) {
+          this.currentPage = page;
+        }
+      }
+      get emptyRows(): number[] {
+        const rowsNeeded = this.itemsPerPage - this.paginatedProducts.length;
+        return Array(rowsNeeded).fill(0);
+      }
+      
 
 }

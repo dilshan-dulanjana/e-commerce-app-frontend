@@ -116,3 +116,20 @@ button:active {
 .dark button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.pagination-controls button {
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .pagination-controls button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .fixed-height-table {
+    height: 50%; /* Set a fixed height */
+    overflow-y: auto; /* Add vertical scrolling if needed */
+    display: block; /* Ensure it respects height constraints */
+  }
+  
